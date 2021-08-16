@@ -104,8 +104,8 @@ template <class T> class Mmap {
       CHECK_FALSE(false) << "unknown open mode:" << filename;
     }
 
-#if !defined(CHARSET_UTF_8) /* for Open JTalk */
-    hFile = ::CreateFileA(filename, mode1, FILE_SHARE_READ, 0,
+#if 1 /* for Open JTalk */
+    hFile = ::CreateFileA(WPATH(filename), mode1, FILE_SHARE_READ, 0,
 #else
     hFile = ::CreateFileW(WPATH(filename), mode1, FILE_SHARE_READ, 0,
 #endif

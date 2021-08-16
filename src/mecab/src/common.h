@@ -144,9 +144,19 @@
 #define EXIT_SUCCESS 0
 #endif
 
-/* for Open JTalk */
-#if defined(CHARSET_UTF_8) && defined(_WIN32) && !defined(__CYGWIN__)
+namespace MeCab {
+  std::string Utf8PathToNarrow(const std::string &path);
+}
+
+/* for Open JTalk
+#if && defined(_WIN32) && !defined(__CYGWIN__)
 #define WPATH(path) (MeCab::Utf8ToWide(path).c_str())
+#else
+#define WPATH(path) (path)
+#endif
+*/
+#if defined(CHARSET_UTF_8)
+#define WPATH(path) (Utf8PathToNarrow(path).c_str())
 #else
 #define WPATH(path) (path)
 #endif

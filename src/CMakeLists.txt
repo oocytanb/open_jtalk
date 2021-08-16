@@ -137,6 +137,14 @@ else()
   message(FATAL_ERROR "Encoding ${CHARSET} not recognized. You can set sjis/eucjp/utf8")
 endif()
 
+target_compile_options(openjtalk
+  PRIVATE $<$<AND:$<COMPILE_LANGUAGE:CXX>,$<CXX_COMPILER_ID:GNU,AppleClang,Clang>>:-std=c++17;-Wno-register>
+)
+
+target_compile_options(openjtalk
+  PRIVATE $<$<AND:$<COMPILE_LANGUAGE:CXX>,$<CXX_COMPILER_ID:MSVC>>:/std:c++17;/wd5033>
+)
+
 # installation
 if(NOT MSVC)
   install(TARGETS openjtalk DESTINATION lib)

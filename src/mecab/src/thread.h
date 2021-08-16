@@ -79,7 +79,7 @@
 #define MECAB_USE_THREAD 1
 #define BEGINTHREAD(src, stack, func, arg, flag, id)                    \
   (HANDLE)_beginthreadex((void *)(src), (unsigned)(stack),              \
-                         (unsigned(_stdcall *)(void *))(func), (void *)(arg), \
+                         (unsigned(__stdcall *)(void *))(func), (void *)(arg), \
                          (unsigned)(flag), (unsigned *)(id))
 #endif
 
