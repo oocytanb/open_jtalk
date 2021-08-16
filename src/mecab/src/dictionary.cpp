@@ -188,7 +188,7 @@ bool Dictionary::assignUserDictionaryCosts(
       << cid.left_size() << " " << matrix.left_size() << " "
       << cid.right_size() << " " << matrix.right_size();
 
-  std::ofstream ofs(output);
+  std::ofstream ofs(WPATH(output));
   CHECK_DIE(ofs) << "permission denied: " << output;
 
   for (size_t i = 0; i < dics.size(); ++i) {

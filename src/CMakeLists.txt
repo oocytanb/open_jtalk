@@ -126,7 +126,7 @@ elseif(${CHARSET} STREQUAL "eucjp")
     PRIVATE $<$<C_COMPILER_ID:MSVC>:/source-charset:euc-jp;/execution-charset:euc-jp>
   )
 elseif(${CHARSET} STREQUAL "utf8")
-  add_definitions(-DCHARSET_UTF_8 -DMECAB_CHARSET=utf-8 -DMECAB_UTF8_USE_ONLY)
+  add_definitions(-DCHARSET_UTF_8 -DMECAB_CHARSET=utf-8 -DMECAB_USE_UTF8_ONLY)
   foreach(flag CMAKE_C_FLAGS CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO)
     set(${flag} "${${flag}} -finput-charset=UTF-8 -fexec-charset=UTF-8")
   endforeach()
